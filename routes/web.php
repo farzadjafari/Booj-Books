@@ -20,6 +20,8 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/books', [BooksController::class, 'index'])->name('books.index');
 
     Route::get('/books/{book}', [BooksController::class, 'show'])->name('books.show');
+
+    Route::delete('/books/{book}', [BooksController::class, 'destroy'])->name('books.delete');
 });
 
 

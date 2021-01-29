@@ -6,13 +6,20 @@
     </x-slot>
 
     <div class="py-12">
+        @include('partials.messages')
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <a href="{{ route('books.index') }}"><< All Books</a>
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+
+                <div class="p-6 bg-white border-b border-gray-200 flex flex-col">
+                    <div class="ml-auto">
+                        @include('books.partials.delete-btn')
+                    </div>
+
                     <img style="max-width: 20rem" class="mb-2" src="{{ $book->image }}" alt="Book thumbnail">
-                    
+
                     <h1 class="md:text-2xl font-bold">{{ $book->title }}</h1>
 
                     <p><strong>Author: </strong>{{ $book->author }}</p>

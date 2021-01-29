@@ -56,4 +56,11 @@ class BooksController extends Controller
     {
         return view('books.show', ['book' => $book]);
     }
+
+    public function destroy(Book $book)
+    {
+        $book->delete();
+
+        return redirect()->back()->with('message', 'The visual was successfully deleted.');
+    }
 }

@@ -9,7 +9,6 @@ class BooksController extends Controller
 {
     public function store()
     {
-//        dd(auth()->user()->books()->pluck('index')->max());
         if(!auth()->check())
         {
             return redirect()->route('login');
@@ -23,6 +22,8 @@ class BooksController extends Controller
             'published_date' => 'nullable|string',
         ]);
 
+        $index = auth()->user()->books()->pluck('index')->max();
+
         Book::firstOrCreate(
             [
                 'title' => request('title'),
@@ -33,7 +34,7 @@ class BooksController extends Controller
             'image' => request('image'),
             'published_date' => request('published_date'),
             'user_id' => auth()->user()->id,
-            'index' => 1,
+            'index' => $index + 1,
         ]);
 
         return redirect()->route('books.index');
@@ -49,5 +50,10 @@ class BooksController extends Controller
         $books = auth()->user()->books()->simplePaginate(3);
 
         return view('books.index', ['books' => $books]);
+    }
+
+    public function show(Book $book)
+    {
+        return view('books.show', ['book' => $book]);
     }
 }

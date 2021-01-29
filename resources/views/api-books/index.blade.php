@@ -24,14 +24,14 @@
                                     <p><strong>Title: </strong>{{ data_get($book, 'volumeInfo.title') }}</p>
                                     <input type="hidden" name="title" value="{{ data_get($book, 'volumeInfo.title') }}">
 
-                                    <p><strong>Description: </strong>{{ data_get($book, 'volumeInfo.description') }}</p>
-                                    <input type="hidden" name="description"
-                                           value="{{ data_get($book, 'volumeInfo.description') }}">
-
                                     <p><strong>Author: </strong>{{ data_get($book, 'volumeInfo.authors.0') }}</p>
                                     <input type="hidden" name="author"
                                            value="{{ data_get($book, 'volumeInfo.authors.0') }}">
 
+
+                                    <p><strong>Description: </strong>{{ data_get($book, 'volumeInfo.description') }}</p>
+                                    <input type="hidden" name="description"
+                                           value="{{ data_get($book, 'volumeInfo.description') }}">
 
                                     <p><strong>Published Date: </strong>{{ date('j F, Y', strtotime(data_get($book, 'volumeInfo.publishedDate'))) }}</p>
                                     <input type="hidden" name="published_date"

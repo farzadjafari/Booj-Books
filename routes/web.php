@@ -18,6 +18,8 @@ Route::middleware(['auth'])->group(function (){
     Route::post('/books', [BooksController::class, 'store'])->name('books.store');
 
     Route::get('/books', [BooksController::class, 'index'])->name('books.index');
+
+    Route::get('/books/{book}', [BooksController::class, 'show'])->name('books.show');
 });
 
 

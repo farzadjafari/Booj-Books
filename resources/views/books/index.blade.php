@@ -38,9 +38,9 @@
                                         </th>
                                     </tr>
                                     </thead>
-                                    <tbody class="bg-white">
+                                    <tbody class="bg-white" id="books" data-sort="{{ route('books.sort') }}">
                                     @foreach ($books as $book)
-                                        <tr>
+                                        <tr data-id="{{ $book->uuid }}">
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                                 <div class="text-sm leading-5 text-blue-900">{{ $book->title }}</div>
                                             </td>

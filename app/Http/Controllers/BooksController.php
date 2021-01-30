@@ -47,7 +47,14 @@ class BooksController extends Controller
             return redirect()->route('login');
         }
 
-        $books = auth()->user()->books()->simplePaginate(3);
+        $order = request('order');
+
+        if($order)
+        {
+            $books = auth()->user()->books()->orderBy($order)->get();
+        }else{
+            $books = auth()->user()->books;
+        }
 
         return view('books.index', ['books' => $books]);
     }

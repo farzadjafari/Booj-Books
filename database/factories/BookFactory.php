@@ -15,6 +15,8 @@ class BookFactory extends Factory
      */
     protected $model = Book::class;
 
+    protected $index = 1;
+
     /**
      * Define the model's default state.
      *
@@ -23,7 +25,7 @@ class BookFactory extends Factory
     public function definition()
     {
         return [
-        'index' => $this->faker->randomNumber(),
+        'index' => $this->index++,
         'uuid' => $this->faker->uuid ,
         'title' => $this->faker->streetName ,
         'author' => $this->faker->name ,

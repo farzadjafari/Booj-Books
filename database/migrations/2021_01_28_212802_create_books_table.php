@@ -22,12 +22,7 @@ class CreateBooksTable extends Migration
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->string('published_date')->nullable();
-            $table->unsignedBigInteger('user_id');
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('CASCADE');
+            $table->foreignId('user_id');
 
             $table->timestamps();
         });

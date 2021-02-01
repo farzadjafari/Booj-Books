@@ -28,12 +28,12 @@ class BooksController extends Controller
             [
                 'title' => request('title'),
                 'author' => request('author'),
+                'user_id' => auth()->user()->id,
             ],
             [
             'description' => request('description'),
             'image' => request('image'),
             'published_date' => request('published_date'),
-            'user_id' => auth()->user()->id,
             'index' => $index + 1,
         ]);
 

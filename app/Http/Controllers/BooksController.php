@@ -63,6 +63,6 @@ class BooksController extends Controller
     {
         $book->delete();
 
-        return redirect()->back()->with('message', 'The visual was successfully deleted.');
+        return redirect()->route('books.index')->with('message', 'The visual was successfully deleted.');
     }
 }

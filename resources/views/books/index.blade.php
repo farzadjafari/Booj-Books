@@ -15,23 +15,36 @@
                         @if($books->count() > 0)
                             <div
                                 class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
+                                <p class="bg-blue-200 text-center p-1 rounded">
+                                Sort the books by dragging and dropping them!<br>
+                                    You can also sort them by clicking on the list's headings
+                                </p>
+
                                 <table class="min-w-full">
                                     <thead>
                                     <tr>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
-                                            <a href="{{ route('books.index', ['order'=>'title']) }}">Title</a>
+                                            <a href="{{ route('books.index', ['order'=>'title']) }}" class="flex">Title
+                                                <span class="ml-1">{{ (request('order') == 'title' ? '^' : '') }}</span>
+                                            </a>
                                         </th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
-                                            <a href="{{ route('books.index', ['order'=>'author']) }}">Author</a>
+                                            <a href="{{ route('books.index', ['order'=>'author']) }}" class="flex">Author
+                                                <span class="ml-1">{{ (request('order') == 'author' ? '^' : '') }}</span>
+                                            </a>
                                         </th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
-                                            <a href="{{ route('books.index', ['order'=>'description']) }}">Description</a>
+                                            <a href="{{ route('books.index', ['order'=>'description']) }}" class="flex">Description
+                                                <span class="ml-1">{{ (request('order') == 'description' ? '^' : '') }}</span>
+                                            </a>
                                         </th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">
                                             Thumbnail
                                         </th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
-                                            <a href="{{ route('books.index', ['order'=>'published_date']) }}">Published Date</a>
+                                            <a href="{{ route('books.index', ['order'=>'published_date']) }}" class="flex">Published Date
+                                                <span class="ml-1">{{ (request('order') == 'published_date' ? '^' : '') }}</span>
+                                            </a>
                                         </th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">
                                             Action
